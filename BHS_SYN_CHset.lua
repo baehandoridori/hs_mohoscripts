@@ -374,9 +374,9 @@ function BHS_CH_Dialog:new(moho, entries)
 	for idx, entry in ipairs(d.entries) do
 		local msgID = d.msgOffset + idx
 		local btn
-		local imgPath = entry.relPath and canInitImage(entry.relPath)
-		if imgPath then
-			btn = LM.GUI.ImageButton(imgPath, entry.displayName, false, msgID)
+		-- 예제 스크립트 방식: 검증 없이 확장자 없는 경로를 바로 전달
+		if entry.relPath then
+			btn = LM.GUI.ImageButton(entry.relPath, entry.displayName, false, msgID)
 		else
 			btn = LM.GUI.Button(entry.displayName, msgID)
 		end
